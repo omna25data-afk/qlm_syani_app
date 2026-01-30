@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qlm_syani_app/src/features/auth/presentation/auth_controller.dart';
-import 'package:qlm_syani_app/src/core/theme/app_theme.dart';
+
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -74,7 +74,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     height: 100.h,
                     width: 100.h,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor.withOpacity(0.1),
+                      color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
