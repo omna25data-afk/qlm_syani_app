@@ -14,7 +14,7 @@ const String _prodBaseUrl = 'https://darkturquoise-lark-306795.hostingersite.com
 
 @Riverpod(keepAlive: true)
 Dio dio(DioRef ref) {
-  final baseUrl = kReleaseMode ? _prodBaseUrl : _devBaseUrl;
+  const baseUrl = kReleaseMode ? _prodBaseUrl : _devBaseUrl;
   
   final dio = Dio(
     BaseOptions(
