@@ -24,3 +24,13 @@ plugins {
 }
 
 include(":app")
+
+// Workaround for Isar + AGP 8 namespace requirement
+// This fixes: "Namespace not specified" error for isar_flutter_libs
+gradle.beforeProject {
+    if (project.name == "isar_flutter_libs") {
+        project.extensions.configure<com.android.build.gradle.LibraryExtension>("android") {
+            namespace = "dev.isar.isar_flutter_libs"
+        }
+    }
+}
