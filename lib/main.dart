@@ -3,10 +3,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qlm_syani_app/src/app.dart';
 
+import 'package:qlm_syani_app/src/features/auth/domain/auth_repository.dart';
+import 'package:qlm_syani_app/src/features/auth/data/auth_repository_impl.dart';
+
 void main() {
   runApp(
-    const ProviderScope(
-      child: MyApp(),
+    ProviderScope(
+      overrides: [
+        authRepositoryProvider.overrideWith((ref) => ref.watch(authRepositoryImplProvider)),
+      ],
+      child: const MyApp(),
     ),
   );
 }

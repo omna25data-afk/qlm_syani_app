@@ -59,7 +59,7 @@ class AuthRepositoryImpl implements AuthRepository {
 }
 
 @Riverpod(keepAlive: true)
-AuthRepository authRepository(AuthRepositoryRef ref) {
+AuthRepository authRepositoryImpl(AuthRepositoryImplRef ref) {
   final dio = ref.watch(dioProvider);
   const storage = FlutterSecureStorage();
   return AuthRepositoryImpl(dio, storage);
