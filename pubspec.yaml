@@ -16,9 +16,10 @@ dependencies:
   flutter_riverpod: ^2.4.9
   riverpod_annotation: ^2.3.3
 
-  # Database (Isar)
-  isar: ^3.1.0+1
-  isar_flutter_libs: ^3.1.0+1 # Includes binaries for Android/iOS
+  # Database (Drift - replaces Isar for AGP 8 compatibility)
+  drift: ^2.22.0
+  drift_flutter: ^0.2.0
+  sqlite3_flutter_libs: ^0.5.0
   path_provider: ^2.1.2
 
   # Networking
@@ -51,7 +52,7 @@ dev_dependencies:
   riverpod_generator: ^2.3.9
   freezed: ^2.4.6
   json_serializable: ^6.7.1
-  isar_generator: ^3.1.0+1
+  drift_dev: ^2.22.0
 
 flutter:
   uses-material-design: true
