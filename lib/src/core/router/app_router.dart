@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
+import 'package:qlm_syani_app/src/features/auth/presentation/login_screen.dart';
 
 class AppRouter {
   static final router = GoRouter(
@@ -13,9 +14,7 @@ class AppRouter {
       ),
       GoRoute(
         path: '/login',
-        builder: (context, state) => const Scaffold(
-          body: Center(child: Text('Login Screen')), // Placeholder
-        ),
+        builder: (context, state) => const LoginScreen(),
       ),
       GoRoute(
         path: '/dashboard',
