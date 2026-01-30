@@ -1,7 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:qlm_syani_app/src/features/auth/domain/auth_repository.dart';
-
-
+import 'package:qlm_syani_app/src/features/auth/data/auth_repository_impl.dart';
 import 'package:qlm_syani_app/src/features/auth/data/models/user_model.dart';
 
 part 'auth_controller.g.dart';
@@ -23,7 +21,7 @@ class AuthController extends _$AuthController {
       );
 
       if (response.status) {
-        state = AsyncData(response); // Store user data
+        state = AsyncData(response);
         return true;
       } else {
         state = AsyncError(response.message, StackTrace.current);

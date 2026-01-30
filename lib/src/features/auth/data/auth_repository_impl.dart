@@ -26,13 +26,11 @@ class AuthRepositoryImpl implements AuthRepository {
 
       if (authResponse.status && authResponse.token != null) {
         await _storage.write(key: 'auth_token', value: authResponse.token);
-        // We could also store user info here if needed
       }
 
       return authResponse;
     } on DioException catch (e) {
       if (e.response != null) {
-        // Validation error or 401
         return AuthResponse.fromJson(e.response!.data);
       }
       rethrow;
@@ -43,7 +41,7 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> logout() async {
     try {
       await _dio.post('/logout');
-    } catch (e) {
+    } catch (_) {
       // Ignore errors on logout
     } finally {
       await _storage.delete(key: 'auth_token');
@@ -52,14 +50,14 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<UserModel?> getCurrentUser() async {
-    // Ideally verify token or fetch /user endpoint
-    // For now, return null as we rely on login response
-    return null;
+    return null; // Placeholder - rely on login response for now
   }
 }
 
+/// The single source of truth for AuthRepository.
+/// This is the ONLY provider needed. No overrides required.
 @Riverpod(keepAlive: true)
-AuthRepository authRepositoryImpl(AuthRepositoryImplRef ref) {
+AuthRepository authRepository(AuthRepositoryRef ref) {
   final dio = ref.watch(dioProvider);
   const storage = FlutterSecureStorage();
   return AuthRepositoryImpl(dio, storage);
