@@ -19,7 +19,7 @@ class SyncService extends _$SyncService {
 
   Future<void> sync() async {
     final connectivity = await Connectivity().checkConnectivity();
-    if (connectivity.contains(ConnectivityResult.none)) return; // Fixed connectivity check for v5
+    if (connectivity == ConnectivityResult.none) return;
 
     await _pushChanges();
     await _pullChanges();
