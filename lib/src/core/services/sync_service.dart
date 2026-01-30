@@ -1,11 +1,11 @@
-import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:isar/isar.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-import '../database/isar_provider.dart';
-import '../network/dio_provider.dart';
-import '../../features/inspections/data/models/registry_entry_model.dart';
+import 'package:qlm_syani_app/src/core/database/isar_provider.dart';
+import 'package:qlm_syani_app/src/core/network/dio_provider.dart';
+import 'package:qlm_syani_app/src/features/inspections/data/models/registry_entry_model.dart';
 
 part 'sync_service.g.dart';
 
@@ -19,7 +19,7 @@ class SyncService extends _$SyncService {
 
   Future<void> sync() async {
     final connectivity = await Connectivity().checkConnectivity();
-    if (connectivity == ConnectivityResult.none) return;
+    if (connectivity.contains(ConnectivityResult.none)) return; // Fixed connectivity check for v5
 
     await _pushChanges();
     await _pullChanges();
@@ -62,7 +62,7 @@ class SyncService extends _$SyncService {
       }
     } catch (e) {
       // Handle error (e.g. server down)
-      print('Sync Push Error: $e');
+      debugPrint('Sync Push Error: $e');
     }
   }
 

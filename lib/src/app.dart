@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'core/theme/app_theme.dart';
-import 'core/router/app_router.dart';
+import 'package:qlm_syani_app/src/core/theme/app_theme.dart';
+import 'package:qlm_syani_app/src/core/router/app_router.dart';
 
 class QlmApp extends StatelessWidget {
   const QlmApp({super.key});
