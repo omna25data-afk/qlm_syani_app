@@ -40,7 +40,7 @@ class SyncService extends _$SyncService {
     // 2. Push to server
     try {
       final response = await dio.post(
-        '/mobile/sync', // Map to SyncController::push
+        '/v1/mobile/sync', // Maps to SyncController::push
         data: {
           'entries': dirtyEntries.map((e) => {
             'uuid': e.uuid,
