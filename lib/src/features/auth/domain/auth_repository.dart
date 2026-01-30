@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../models/user_model.dart';
+import 'package:qlm_syani_app/src/features/auth/data/models/user_model.dart';
 
 part 'auth_repository.g.dart';
 
