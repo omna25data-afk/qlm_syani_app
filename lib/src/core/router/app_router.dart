@@ -16,11 +16,12 @@ class AppRouter {
         path: '/login',
         builder: (context, state) => const LoginScreen(),
       ),
+import 'package:qlm_syani_app/src/features/dashboard/presentation/dashboard_screen.dart';
+
+// ... inside GoRoute
       GoRoute(
         path: '/dashboard',
-        builder: (context, state) => const Scaffold(
-          body: Center(child: Text('Dashboard Screen')), // Placeholder
-        ),
+        builder: (context, state) => const DashboardScreen(),
       ),
     ],
   );
